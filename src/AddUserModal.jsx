@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { generateRandomString } from './helpers/appHelpers';
 
 const AddUserModal = ({ isOpen, onClose, onUserAdded }) => {
   const [formData, setFormData] = useState({
@@ -24,10 +25,13 @@ const AddUserModal = ({ isOpen, onClose, onUserAdded }) => {
       );
       const { id, firstName, lastName, email, address, company } =
         response.data;
+      const randomString = generateRandomString();
+
       const newUser = {
         id,
         firstName,
         lastName,
+        image: `https://robohash.org/${randomString}.png?set=set4`,
         email,
         address: { address },
         company: { name: company || '' },
