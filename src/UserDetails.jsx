@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
-function UserDetails() {
+const UserDetails = () => {
   const { id } = useParams();
   const [user, setUser] = useState(null);
 
@@ -32,10 +32,10 @@ function UserDetails() {
       />
       <h1>{`${user.firstName} ${user.lastName}`}</h1>
       <p>Email: {user.email}</p>
-      <p>Address: {user.address.address}</p>
+      <p>Address: {user.address.address || ''}</p>
       <p>Company: {user.company.name}</p>
     </div>
   );
-}
+};
 
 export default UserDetails;

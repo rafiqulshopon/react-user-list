@@ -4,7 +4,7 @@ import UserCard from './UserCard';
 import useDebounce from './helpers/hooks/useDebounce';
 import AddUserModal from './AddUserModal';
 
-function UserList() {
+const UserList = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
@@ -71,8 +71,6 @@ function UserList() {
     setUsers((prevUsers) => [...prevUsers, newUser]);
   };
 
-  console.log({ users });
-
   useEffect(() => {
     fetchUsers();
   }, []);
@@ -119,6 +117,6 @@ function UserList() {
       </div>
     </div>
   );
-}
+};
 
 export default UserList;
