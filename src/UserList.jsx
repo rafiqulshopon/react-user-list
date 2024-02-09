@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import UserCard from './UserCard';
 import useDebounce from './helpers/hooks/useDebounce';
+import AddUserModal from './AddUserModal';
 
 function UserList() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [sortKey, setSortKey] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const fetchUsers = async (query = '') => {
     setLoading(true);
@@ -57,6 +59,20 @@ function UserList() {
     setUsers(sortUsers(users, value));
   };
 
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleUserAdded = (newUser) => {
+    setUsers((prevUsers) => [...prevUsers, newUser]);
+  };
+
+  console.log({ users });
+
   useEffect(() => {
     fetchUsers();
   }, []);
@@ -64,6 +80,14 @@ function UserList() {
   return (
     <div className='flex flex-col items-center p-5'>
       <h1 className='text-3xl font-bold underline mb-4'>User List</h1>
+      <button className='btn btn-primary mb-4' onClick={handleOpenModal}>
+        Add User
+      </button>
+      <AddUserModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        onUserAdded={handleUserAdded}
+      />
       <div className='form-control w-full max-w-xs mb-4'>
         <input
           type='text'

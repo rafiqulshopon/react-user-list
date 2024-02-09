@@ -32,7 +32,7 @@ function UserDetails() {
       />
       <h1>{`${user.firstName} ${user.lastName}`}</h1>
       <p>Email: {user.email}</p>
-      <p>Address: {`${user.address.address}, ${user.address.city}`}</p>
+      <p>Address: {user.address.address}</p>
       <p>Company: {user.company.name}</p>
     </div>
   );
