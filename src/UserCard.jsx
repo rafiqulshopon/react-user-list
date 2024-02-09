@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const UserCard = ({ user }) => {
   return (
     <div className='card w-96 bg-base-100 shadow-xl'>
@@ -5,9 +7,9 @@ const UserCard = ({ user }) => {
         <img src={user.image} alt='User' />
       </figure>
       <div className='card-body'>
-        <h2 className='card-title'>
+        <Link to={`/user/${user.id}`} className='card-title'>
           {user.firstName} {user.lastName}
-        </h2>
+        </Link>
         <p>Email: {user.email}</p>
         <p>Address: {`${user.address.address}, ${user.address.city}`}</p>
         <p>Company: {user.company.name}</p>
