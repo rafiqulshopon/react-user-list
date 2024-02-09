@@ -76,44 +76,44 @@ const UserList = () => {
   }, []);
 
   return (
-    <div className='flex flex-col items-center p-5'>
-      <h1 className='text-3xl font-bold underline mb-4'>User List</h1>
-      <button className='btn btn-primary mb-4' onClick={handleOpenModal}>
-        Add User
-      </button>
+    <div className='p-5'>
+      <div className='flex justify-between items-center mb-4'>
+        <div className='flex gap-4'>
+          <input
+            type='text'
+            placeholder='Search by name...'
+            className='input input-bordered'
+            value={search}
+            onChange={handleSearchChange}
+          />
+          <select
+            className='select select-bordered'
+            value={sortKey}
+            onChange={handleSortChange}
+          >
+            <option value=''>Sort by</option>
+            <option value='firstName'>Name</option>
+            <option value='email'>Email</option>
+            <option value='company'>Company Name</option>
+          </select>
+        </div>
+        <button className='btn btn-primary' onClick={handleOpenModal}>
+          Add User
+        </button>
+      </div>
       <AddUserModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         onUserAdded={handleUserAdded}
       />
-      <div className='form-control w-full max-w-xs mb-4'>
-        <input
-          type='text'
-          placeholder='Search by name...'
-          className='input input-bordered w-full'
-          value={search}
-          onChange={handleSearchChange}
-        />
-        <select
-          className='select select-bordered w-full max-w-xs mt-2'
-          onChange={handleSortChange}
-        >
-          <option value=''>Sort by</option>
-          <option value='firstName'>Name</option>
-          <option value='email'>Email</option>
-          <option value='company'>Company Name</option>
-        </select>
-      </div>
-      <div className='w-full flex justify-center'>
-        <div className='flex flex-wrap justify-center gap-4'>
-          {loading ? (
-            <div>Loading...</div>
-          ) : users.length > 0 ? (
-            users.map((user) => <UserCard key={user.id} user={user} />)
-          ) : (
-            <p>No data found.</p>
-          )}
-        </div>
+      <div className='flex flex-wrap justify-center gap-4'>
+        {loading ? (
+          <div>Loading...</div>
+        ) : users.length > 0 ? (
+          users.map((user) => <UserCard key={user.id} user={user} />)
+        ) : (
+          <p>No data found.</p>
+        )}
       </div>
     </div>
   );
