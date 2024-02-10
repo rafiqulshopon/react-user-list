@@ -24,16 +24,18 @@ const UserDetails = () => {
   }
 
   return (
-    <div className='p-5'>
+    <div className='p-5 flex flex-col items-center'>
       <img
         src={user.image}
         alt={`${user.firstName} ${user.lastName}`}
-        className='w-24 h-24 rounded-full'
+        className='w-32 h-32 md:w-48 md:h-48 rounded-full'
       />
-      <h1>{`${user.firstName} ${user.lastName}`}</h1>
-      <p>Email: {user.email}</p>
-      <p>Address: {user.address.address || ''}</p>
-      <p>Company: {user.company.name}</p>
+      <h1 className='text-xl md:text-3xl'>{`${user.firstName} ${user.lastName}`}</h1>
+      <p className='text-sm md:text-base'>Email: {user.email}</p>
+      <p className='text-sm md:text-base'>
+        Address: {user.address.address || ''}
+      </p>
+      <p className='text-sm md:text-base'>Company: {user.company.name}</p>
     </div>
   );
 };
