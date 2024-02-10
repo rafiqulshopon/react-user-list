@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const UserDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
@@ -44,7 +45,13 @@ const UserDetails = () => {
   }
 
   return (
-    <div className='flex justify-center items-center h-screen'>
+    <div className='relative h-screen flex justify-center items-center'>
+      <button
+        className='absolute top-5 left-5 px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-colors'
+        onClick={() => navigate('/')}
+      >
+        Back to home
+      </button>
       <div className='card w-96 md:w-1/2 lg:w-1/3 bg-base-100 shadow-xl p-5'>
         <div className='flex flex-col items-center'>
           <img
