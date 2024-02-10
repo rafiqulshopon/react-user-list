@@ -87,22 +87,6 @@ const UserList = () => {
               value={search}
               onChange={handleSearchChange}
             />
-            <button className='absolute top-0 right-0 rounded-l-none btn btn-square'>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                className='h-4 w-4'
-                fill='none'
-                viewBox='0 0 24 24'
-                stroke='currentColor'
-              >
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  strokeWidth={2}
-                  d='M8 6h13M8 12h13m-13 6h13'
-                />
-              </svg>
-            </button>
           </div>
           <select
             className='select select-bordered w-full lg:w-auto'
