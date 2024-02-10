@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom';
 
 const UserCard = ({ user }) => {
+  const formatAddress = (address, city) => {
+    return [address, city].filter((part) => part).join(', ');
+  };
+
   return (
     <div className='card w-full h-full bg-base-100 shadow-xl'>
       <figure className='px-4 pt-4'>
@@ -12,7 +16,7 @@ const UserCard = ({ user }) => {
         </Link>
         <p className='truncate'>Email: {user.email}</p>
         <p className='break-words'>
-          Address: {`${user.address.address}, ${user.address.city}`}
+          Address: {formatAddress(user.address.address, user.address.city)}
         </p>
         <p className='truncate'>Company: {user.company.name}</p>
       </div>
