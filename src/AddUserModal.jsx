@@ -91,7 +91,7 @@ const AddUserModal = ({ isOpen, onClose, onUserAdded }) => {
             onChange={handleInputChange}
           />
           <div className='modal-action'>
-            <button type='submit' className='btn btn-primary'>
+            <button type='submit' className='btn btn-neutral'>
               Add
             </button>
             <button type='button' className='btn' onClick={onClose}>

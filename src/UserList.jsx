@@ -100,7 +100,7 @@ const UserList = () => {
           </select>
         </div>
         <button
-          className='btn btn-primary self-start lg:self-center'
+          className='btn btn-neutral self-start lg:self-center'
           onClick={handleOpenModal}
         >
           Add User
