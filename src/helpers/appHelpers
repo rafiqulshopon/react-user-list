@@ -1,0 +1,6 @@
+export const generateRandomString = (length = 6) =>
+  Array.from({ length }, () =>
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.charAt(
+      Math.floor(Math.random() * 52)
+    )
+  ).join('');
