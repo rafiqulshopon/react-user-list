@@ -77,7 +77,7 @@ const UserList = () => {
 
   return (
     <div className='max-w-screen mx-auto p-5'>
-      <div className='flex flex-col lg:flex-row justify-between items-center mb-4'>
+      <div className='flex flex-col lg:flex-row justify-between items-center mb-4 mx-2'>
         <div className='flex gap-4 mb-4 lg:mb-0'>
           <div className='relative w-full lg:w-auto'>
             <input
