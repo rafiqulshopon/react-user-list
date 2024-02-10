@@ -109,7 +109,7 @@ const UserList = () => {
 
       <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:gap-6 2xl:gap-8'>
         {loading ? (
-          <div className='col-span-full flex justify-center items-center h-full'>
+          <div className='col-span-full flex justify-center items-center h-screen'>
             Loading...
           </div>
         ) : users.length > 0 ? (
